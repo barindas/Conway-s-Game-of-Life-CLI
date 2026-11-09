@@ -1,24 +1,29 @@
-import coords
 import config
+import coords
 import engine
 import time
-import os
-
-coord_array = coords.make_coord_array(config.aspect)
-running = True
-
-for node in config.alive_at_start:
-    foo = coords.Node(coord_array,
-        node[0] + config.offset_at_start,
-        node[-1] + config.offset_at_start)
-    foo.make_once()
-
-while running:
-    os.system('clear')
-
-    engine.frame(coord_array, engine.calculate(coord_array))
-    time.sleep(1/config.fps)
 
 
+def clear() -> None:
+    print("\033[2J\033[H", end="", flush=True)
 
 
+def main() -> None:
+    board = coords.make_empty_board(config.aspect)
+    for x, y in config.alive_at_start:
+        coords.Node(
+            board, x + config.offset_at_start, y + config.offset_at_start
+        ).set_alive(True)
+
+    while True:
+        clear()
+        engine.render(board)
+        engine.apply(board, engine.calculate(board))
+        time.sleep(1 / config.fps)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        pass
