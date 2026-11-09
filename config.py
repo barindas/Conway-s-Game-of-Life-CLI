@@ -1,7 +1,11 @@
-aspect = (100, 60)
-alive_icon = "✡"
+aspect = (100, 100)
+alive_icon = "█"
 none_icon = " "
 fps = 15
+
+background_color = (0, 0, 0)
+foreground_color = (0, 0, 0)
+
 
 GOSPER_GUN = [
     (0, 4),
