@@ -5,7 +5,7 @@ def make_empty_board(size: tuple[int, int]) -> list[list[str]]:
     return [[config.none_icon for x in range(size[0])] for y in range(size[-1])]
 
 
-class Node:
+class Cell:
     def __init__(self, coord_sys: list[list[str]], x: int, y: int):
         self.coord_sys: list[list[str]] = coord_sys
         self.row: int = y

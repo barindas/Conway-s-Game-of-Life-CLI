@@ -3,7 +3,7 @@ alive_icon = "█"
 none_icon = " "
 fps = 15
 
-background_color = (0, 0, 0)
+background_color = (20, 20, 20)
 foreground_color = (0, 0, 0)
 
 
